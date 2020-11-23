@@ -25,3 +25,5 @@ yarn-error.log*
 # ts parcel-bundle artifacts
 /.cache
 /dist
+
+db.json
