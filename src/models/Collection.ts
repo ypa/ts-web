@@ -9,7 +9,7 @@ export class Collection {
     return this.events.on;
   }
 
-  get triger() {
+  get trigger() {
     return this.events.trigger;
   }
 }
