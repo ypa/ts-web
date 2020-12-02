@@ -47,6 +47,10 @@ export class UserForm {
   }
 
   render(): void {
+    // empty out the current HTML and then...
+    this.parent.innerHTML = '';
+
+    // Re-render afresh
     const templateElement = document.createElement('template');
     templateElement.innerHTML = this.template();
 
