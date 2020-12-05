@@ -1,11 +1,17 @@
 import { Model } from '../models/Model';
 
 export abstract class View<T extends Model<K>, K> {
+  regions: { [key: string]: Element } = {};
+
   constructor(public parent: Element, public model: T) {
     this.bindModel();
   }
 
   abstract template(): string;
+
+  regionsMap(): { [key: string]: string } {
+    return {};
+  }
 
   eventsMap(): { [key: string]: () => void } {
     return {};
