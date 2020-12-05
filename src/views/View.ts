@@ -35,6 +35,19 @@ export abstract class View<T extends Model<K>, K> {
     }
   }
 
+  mapRegions(fragment: DocumentFragment): void {
+    const regionsMap = this.regionsMap();
+
+    for (let key in regionsMap) {
+      const selector = regionsMap[key];
+      const element = fragment.querySelector(selector);
+
+      if (element) {
+        this.regions[key] = element;
+      }
+    }
+  }
+
   render(): void {
     // empty out the current HTML and then...
     this.parent.innerHTML = '';
@@ -44,6 +57,7 @@ export abstract class View<T extends Model<K>, K> {
     templateElement.innerHTML = this.template();
 
     this.bindEvents(templateElement.content);
+    this.mapRegions(templateElement.content);
 
     this.parent.append(templateElement.content);
   }
