@@ -8,7 +8,7 @@ export class Attributes<T> {
   }
 
   set(update: T): void {
-    Object.assign(this.data, update);
+    this.data = { ...this.data, ...update };
   }
 
   getAll(): T {
